@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('post_code')->group(function() {
+   Route::get('/', 'PostCodeController@index');
+   Route::post('/search', 'PostCodeController@show');
+});
+
+/*
+ RESTfulなurlにしたいときはこんな感じにする
+ Route::prefix('post_code')->group(function() {
+     Route::get('/search/{post_code}', 'PostCodeController@show');
+ )}
+ */
