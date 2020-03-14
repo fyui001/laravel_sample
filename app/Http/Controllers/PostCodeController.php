@@ -24,7 +24,7 @@ class PostCodeController extends Controller
      * @param PostCodeRequest $request
      * @return array
      */
-    public function show(Request $request) {
+    public function show(PostCodeRequest $request) {
         $PostCode = new PostCode;
         $searchPostCode = str_replace(['-', 'ー'], '', $request['post_code']);
         $address = $PostCode->search((int)$searchPostCode);
